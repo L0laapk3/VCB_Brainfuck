@@ -23,8 +23,10 @@ def compile(bf):
 			references.append(i)
 		elif char == ']':
 			s = references.pop()
-			chars[s] = f"{hex(i + 1)}0bf"
-			chars[i] = f"{hex(s + 1)}07f"
+			chars[s] = f"{hex(i + 2)}bf"
+			chars[i] = f"{hex(s + 2)}7f"
+
+	chars.append("0xff")
 	return '\n'.join(chars)
 
 
